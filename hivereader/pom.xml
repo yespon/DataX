@@ -87,6 +87,12 @@
             <artifactId>plugin-rdbms-util</artifactId>
             <version>${datax-project-version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.11</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,6 +1,6 @@
 package com.alibaba.datax.plugin.reader.hivereader;
 
-import com.alibaba.datax.common.base.Key;
+import com.alibaba.datax.plugin.reader.hivereader.Key;
 import com.alibaba.datax.common.plugin.RecordSender;
 import com.alibaba.datax.common.spi.Reader;
 import com.alibaba.datax.common.util.Configuration;
@@ -10,8 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.hadoop.security.authentication.util.KerberosName;
 
-import static com.alibaba.datax.common.base.Constant.DEFAULT_FETCH_SIZE;//2048，可根据条件自己取值
-import static com.alibaba.datax.common.base.Key.FETCH_SIZE; // 参数名："fetchSize"
+import java.lang.reflect.Field;
+
+import static com.alibaba.datax.plugin.reader.hivereader.Constant.DEFAULT_FETCH_SIZE;//2048，可根据条件自己取值
+import static com.alibaba.datax.plugin.reader.hivereader.Key.FETCH_SIZE; // 参数名："fetchSize"
 
 public class HiveReader extends Reader {
 
@@ -36,7 +38,7 @@ public class HiveReader extends Reader {
                 org.apache.hadoop.conf.Configuration hadoopConf = new org.apache.hadoop.conf.Configuration();
                 String kerberosKeytabFilePath = this.originalConfig.getString(Key.KERBEROS_KEYTAB_FILE_PATH);
                 String kerberosPrincipal = this.originalConfig.getString(Key.KERBEROS_PRINCIPAL);
-                String krb5Path = this.originalConfig.getString(Key.KRB5_CONF_FILE_PATH);
+                String krb5Path = this.originalConfig.getString(Key.KERBEROS_CONF_FILE_PATH);
 
                 hadoopConf.set("hadoop.security.authentication", "kerberos");
                 hadoopConf.set("hive.security.authentication", "kerberos");
