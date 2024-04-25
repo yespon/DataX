@@ -1,0 +1,25 @@
+{
+  "name": "hivereader",
+  "parameter": {
+    "column": [
+      "*"
+    ],
+    "username": "hive",
+    "password": "",
+    "preSql":"show databases;",
+    "connection": [
+      {
+        "jdbcUrl": [
+          "jdbc:hive2://localhost:10000/default;principal=hive/_HOST@EXAMPLE.COM"
+        ],
+        "table": [
+          "hive_reader"
+        ]
+      }
+    ],
+    "where": "dt=20240425",
+    "haveKerberos": true,
+    "kerberosKeytabFilePath": "/etc/security/keytabs/hive.headless.keytab",
+    "kerberosPrincipal": "hive@EXAMPLE.COM"
+  }
+}
