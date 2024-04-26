@@ -1,6 +1,6 @@
 package com.alibaba.datax.plugin.reader.hivereader;
 
-import com.alibaba.datax.plugin.reader.hivereader.Key;
+//import com.alibaba.datax.plugin.reader.hivereader.Key;
 import com.alibaba.datax.common.plugin.RecordSender;
 import com.alibaba.datax.common.spi.Reader;
 import com.alibaba.datax.common.util.Configuration;
@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.apache.hadoop.security.authentication.util.KerberosName;
 
 import java.lang.reflect.Field;
+import java.util.List;
 
 import static com.alibaba.datax.plugin.reader.hivereader.Constant.DEFAULT_FETCH_SIZE;//2048，可根据条件自己取值
 import static com.alibaba.datax.plugin.reader.hivereader.Key.FETCH_SIZE; // 参数名："fetchSize"
@@ -48,7 +49,8 @@ public class HiveReader extends Reader {
                 HiveConnByKerberos.kerberosAuthentication(kerberosPrincipal, kerberosKeytabFilePath, hadoopConf, krb5Path);
             }
             this.commonRdbmsReaderJob = new CommonRdbmsReader.Job(DATABASE_TYPE);
-            this.originalConfig = commonRdbmsReaderJob.init(originalConfig);
+//            this.originalConfig = commonRdbmsReaderJob.init(originalConfig);
+            this.commonRdbmsReaderJob.init(originalConfig);
         }
 
 

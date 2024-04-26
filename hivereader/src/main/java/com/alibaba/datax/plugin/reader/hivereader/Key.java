@@ -1,7 +1,7 @@
 package com.alibaba.datax.plugin.reader.hivereader;
 
 public class Key {
-    public final static String FETCH_SIZE = "fetchsize";
+    public final static String FETCH_SIZE = "fetchSize";
 
     public static final String HAVE_KERBEROS = "haveKerberos";
     public static final String KERBEROS_KEYTAB_FILE_PATH = "kerberosKeytabFilePath";
