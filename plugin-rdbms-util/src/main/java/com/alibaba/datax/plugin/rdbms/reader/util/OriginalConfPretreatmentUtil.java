@@ -17,17 +17,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class OriginalConfPretreatmentUtil {
-    private static final Logger LOG = LoggerFactory
-            .getLogger(OriginalConfPretreatmentUtil.class);
+    private static final Logger LOG = LoggerFactory .getLogger(OriginalConfPretreatmentUtil.class);
 
     public static DataBaseType DATABASE_TYPE;
 
     public static void doPretreatment(Configuration originalConfig) {
         // 检查 username/password 配置（必填）
-        originalConfig.getNecessaryValue(Key.USERNAME,
-                DBUtilErrorCode.REQUIRED_VALUE);
-        originalConfig.getNecessaryValue(Key.PASSWORD,
-                DBUtilErrorCode.REQUIRED_VALUE);
+        originalConfig.getNecessaryValue(Key.USERNAME, DBUtilErrorCode.REQUIRED_VALUE);
+        boolean isHive = DATABASE_TYPE.getTypeName().equalsIgnoreCase("hive2");
+        if (isHive) {
+            LOG.debug("Hive 无需验证密码。");
+        }
+        if (!isHive) {
+            originalConfig.getNecessaryValue(Key.PASSWORD, DBUtilErrorCode.REQUIRED_VALUE);
+        }
         dealWhere(originalConfig);
 
         simplifyConf(originalConfig);

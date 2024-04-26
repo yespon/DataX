@@ -29,7 +29,7 @@ public enum DataBaseType {
     GaussDB("gaussdb", "org.opengauss.Driver"),
     Databend("databend", "com.databend.jdbc.DatabendDriver"),
     Doris("doris","com.mysql.jdbc.Driver"),
-    Hive("hive", "org.apache.hive.jdbc.HiveDriver");
+    Hive("hive2", "org.apache.hive.jdbc.HiveDriver");
 
     private String typeName;
     private String driverClassName;

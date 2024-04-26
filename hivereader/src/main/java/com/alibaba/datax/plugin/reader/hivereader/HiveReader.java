@@ -50,9 +50,8 @@ public class HiveReader extends Reader {
             }
             this.commonRdbmsReaderJob = new CommonRdbmsReader.Job(DATABASE_TYPE);
 //            this.originalConfig = commonRdbmsReaderJob.init(originalConfig);
-            this.commonRdbmsReaderJob.init(originalConfig);
+            this.commonRdbmsReaderJob.init(this.originalConfig);
         }
-
 
         @Override
         public void preCheck() {
